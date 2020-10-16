@@ -19,7 +19,9 @@ gem 'devise' # Authentication solution for Rails with Warden
 gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
 
 # Assets
-gem 'webpacker', '4.0' # Transpile app-like JavaScript
+# gem 'webpacker', '4.0' # Transpile app-like JavaScript
+gem 'webpacker', '~> 4.3'
+# gem 'webpacker', '~> 5.2', '>= 5.2.1' # Transpile app-like JavaScript
 gem 'sass-rails' # SASS
 
 # Translations
