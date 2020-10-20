@@ -14,6 +14,9 @@ gem 'sidekiq' # background processing for Ruby
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'i18n-js', '3.5.1' # A library to provide the I18n translations on the Javascript
 
+# Active Storage
+gem 'aws-sdk-s3', '~> 1.83', '>= 1.83.1'
+
 # Authentications & Authorizations
 gem 'devise' # Authentication solution for Rails with Warden
 gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
