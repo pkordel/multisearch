@@ -19,7 +19,9 @@ gem 'devise' # Authentication solution for Rails with Warden
 gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
 
 # Assets
-gem 'webpacker', '4.0' # Transpile app-like JavaScript
+# gem 'webpacker', '4.0' # Transpile app-like JavaScript
+gem 'webpacker', '~> 4.3'
+# gem 'webpacker', '~> 5.2', '>= 5.2.1' # Transpile app-like JavaScript
 gem 'sass-rails' # SASS
 
 # Translations
@@ -44,6 +46,7 @@ group :development, :test do
   gem 'pry-byebug' # Step by step debugging and stack navigation in Pry
   gem 'listen', '3.1.5' # Listens to file modifications
   gem 'letter_opener' # Preview mail in the browser instead of sending.
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1' # Rails testing engine
   gem 'sassc-rails' # Gem to generate scss source maps.
   gem 'brakeman', require: false # A static analysis security vulnerability scanner for Ruby on Rails applications
   gem 'rubocop', require: false
@@ -60,7 +63,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', '>=4.0.0.beta2' # Rails testing engine
   gem 'rspec-retry' # Retry randomly failing rspec example.
   gem 'capybara', '>= 2.15' # Integration testing
   gem 'webdrivers' # Run Selenium tests more easily with automatic installation and updates for all supported webdrivers

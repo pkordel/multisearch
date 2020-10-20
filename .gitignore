@@ -35,7 +35,7 @@
 
 # Ignore i18n.js generated files
 # If deploy to heroku with git, please remove this as it prevents the files to be committed
-/app/javascript/translations/translations.js
+# /app/javascript/translations/translations.js
 
 # Ignore folder information and IDE-specific files
 .DS_Store
@@ -46,3 +46,11 @@
 
 # Ignore pronto configuration files
 .pronto.yml
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+.vscode/settings.json
