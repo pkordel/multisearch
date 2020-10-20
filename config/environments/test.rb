@@ -3,8 +3,6 @@
 # your test database is "scratch space" for the test suite and is wiped
 # and recreated between test runs. Don't rely on the data there!
 
-require_relative '../../spec/support/disable_animation'
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -38,8 +36,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { 
-    host: ENV.fetch('MAILER_DEFAULT_HOST'), 
+  config.action_mailer.default_url_options = {
+    host: ENV.fetch('MAILER_DEFAULT_HOST'),
     port: ENV.fetch('MAILER_DEFAULT_PORT')
   }
 
@@ -53,7 +51,7 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
-  
+
   # Configure Bullet gem to detect N+1 queries
   config.after_initialize do
     Bullet.enable                      = true
@@ -62,9 +60,6 @@ Rails.application.configure do
     Bullet.unused_eager_loading_enable = false
   end
 
-  # Disable all animation during tests
-  config.middleware.use Rack::NoAnimations
-
   # Do not fallback to assets pipeline if a precompiled asset is missing.
-  config.assets.compile = false
+  config.assets.compile = true
 end
