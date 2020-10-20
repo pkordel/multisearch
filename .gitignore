@@ -33,6 +33,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore figaro vars. Use config/application.yml.example as a starting point
+config/application.yml
+
 # Ignore i18n.js generated files
 # If deploy to heroku with git, please remove this as it prevents the files to be committed
 # /app/javascript/translations/translations.js
