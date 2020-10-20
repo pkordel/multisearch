@@ -1,0 +1,27 @@
+<h3><%= link_to('Reports', reports_path) %> &raquo; <%= @title %></h3>
+<% if @results.any? %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th><%= SearchResult.human_attribute_name(:count_adwords_advertisers) %></th>
+        <th><%= SearchResult.human_attribute_name(:count_links) %></th>
+        <th><%= SearchResult.human_attribute_name(:count_hits) %></th>
+        <th><%= SearchResult.human_attribute_name(:elapsed_time) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+      <tr>
+        <td><%= result.count_adwords_advertisers %></td>
+        <td><%= result.count_links %></td>
+        <td><%= result.count_hits %></td>
+        <td><%= result.elapsed_time %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% else %>
+  <p>No results found</p>
+<% end %>
