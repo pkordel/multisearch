@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <li class="nav-item">
+    <%= button_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'btn btn-link nav-link' %>
+  </li>
+  <%= nav_link(:registration, name: 'Edit account', path: edit_user_registration_path, class: controller_name == 'registrations' ? 'nav-link active' : 'nav-link') %>
+<% else %>
+  <li><%= link_to 'Sign in', new_user_session_path, class: controller_name == 'sessions' ? 'nav-link active' : 'nav-link' %></li>
+<% end %>
