@@ -1,3 +1,34 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-  <h1 class="h2"><%= @title %></h1>
+<h1 class="h3"><%= @title %></h1>
+<p>
+  <%= link_to "New report", new_report_path, class: "btn btn-primary" %>
+</p>
+<% if @reports.any? %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th><%= Report.human_attribute_name(:title) %></th>
+        <th>Keywords</th>
+        <th><%= Report.human_attribute_name(:updated_at) %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.title %></td>
+        <td><%= report.search_results.count %></td>
+        <td><%= report.updated_at.to_s(:db) %></td>
+        <td><%= link_to 'Show', report, class: "btn btn-primary btn-sm" %></td>
+        <td><%= button_to 'Delete', report, method: :delete,
+                                            data: { confirm: "Are you sure?" },
+                                            class: "btn btn-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+<% else %>
+<p>There are no reports to show.</p>
+<% end %>
