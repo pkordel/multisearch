@@ -1,5 +1,6 @@
 Fabricator(:search_result) do
   report
+  term                      { 'keyword' }
   count_adwords_advertisers { (rand * 10).round }
   count_links               { (rand * 100_000).round }
   count_hits                { (rand * 1_000_000).round }
