@@ -1,26 +1,27 @@
 <% content_for(:body_class) { 'text-center' } %>
 
-<%= form_for(resource, as: resource_name,
-                       url: registration_path(resource_name),
-                       html: { class: 'new_user user-form' }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= simple_form_for(resource, as: resource_name,
+                              url: registration_path(resource_name),
+                              html: { class: 'new_user user-form' }) do |f| %>
   <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
 
-  <%= f.label :email, class: 'sr-only' %>
-  <%= f.email_field :email, class: 'form-control',
-                            placeholder: 'Email address',
-                            autofocus: true,
-                            autocomplete: "email" %>
-  <%= f.label :password, class: 'sr-only' %>
-  <%= f.password_field :password, class: 'form-control',
-                                  placeholder: 'Password (6 characters minimum)',
-                                  autocomplete: "new-password" %>
-  <%= f.label :password_confirmation, class: 'sr-only' %>
-  <%= f.password_field :password_confirmation, class: 'form-control',
-                                               placeholder: 'Password confirmation',
-                                               autocomplete: "new-password" %>
+  <%= f.input :email, label_html: { class: "sr-only" },
+                      required: true,
+                      autofocus: true,
+                      autocomplete: "email" %>
 
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+  <%= f.input :password, label_html: { class: "sr-only" },
+                         placeholder: "Password",
+                         hint: "6 characters minimum",
+                         required: true,
+                         autocomplete: "new-password" %>
+
+  <%= f.input :password_confirmation, label_html: { class: "sr-only" },
+                                      placeholder: 'Password confirmation',
+                                      required: true,
+                                      autocomplete: "new-password" %>
+
+  <%= f.button :submit, "Sign up", class: "btn btn-lg btn-primary btn-block" %>
 <% end %>
 
 <%= render "devise/shared/links" %>

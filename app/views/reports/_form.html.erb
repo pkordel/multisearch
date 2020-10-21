@@ -1,0 +1,14 @@
+<%= simple_form_for(@report, html: { class: 'new_report user-form' }) do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal"><%= @title %></h1>
+
+  <%= f.input :title, label_html: { class: "sr-only" },
+                      placeholder: "Title",
+                      required: true,
+                      autofocus: true,
+                      autocomplete: "email" %>
+
+  <%= f.input :keyword_list, label_html: { class: "sr-only" },
+                             required: true %>
+
+  <%= f.button :submit, "Save", class: "btn btn-lg btn-primary btn-block" %>
+<% end %>
