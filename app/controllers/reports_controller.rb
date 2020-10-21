@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_report, except: [:index]
+  before_action :set_report, except: [:index, :create]
 
   def index
     @title = 'Reports'
@@ -16,9 +16,11 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = current_user.reports.new(report_params)
-    if @report.save
-      redirect_to reports_path
+    @report = Report::Create.call(
+      report_params.merge(user_id: current_user.id)
+    )
+    if @report.errors.empty?
+      redirect_to reports_path, notice: 'Report was created successfully.'
     else
       render :new
     end
@@ -26,7 +28,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report.destroy
-    redirect_to reports_path
+    redirect_to reports_path, notice: 'Report was deleted.'
   end
 
   private
