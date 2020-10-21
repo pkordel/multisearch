@@ -8,6 +8,6 @@ RSpec.describe SearchResult, type: :model do
   it 'is invalid' do
     record = described_class.new
     expect(record).to be_invalid
-    expect(record.errors.keys).to include(:report)
+    expect(record.errors.keys).to include(:report, :term)
   end
 end

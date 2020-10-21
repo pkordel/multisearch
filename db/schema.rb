@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_115725) do
+ActiveRecord::Schema.define(version: 2020_10_21_172551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 2020_10_20_115725) do
     t.text "html"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "term"
+    t.jsonb "payload", default: "{}"
+    t.index ["payload"], name: "index_search_results_on_payload", using: :gin
     t.index ["report_id"], name: "index_search_results_on_report_id"
   end
 
