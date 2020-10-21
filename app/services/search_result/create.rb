@@ -1,3 +1,5 @@
+require 'selenium-webdriver'
+
 class SearchResult < ApplicationRecord
   class Create
     attr_reader :report, :endpoint, :search_limit
@@ -62,7 +64,7 @@ class SearchResult < ApplicationRecord
       matches = result_stats.match(/([\d+,\d+]+) \w+ \((\d+\.\d{2})/)
       return OpenStruct.new(hits: 0, time: 0) if matches.blank?
 
-      OpenStruct.new(hits: matches[1], time: matches[2])
+      OpenStruct.new(hits: matches[1].delete(',').to_i, time: matches[2].to_f)
     end
   end
 end
