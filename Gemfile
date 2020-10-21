@@ -17,6 +17,9 @@ gem 'i18n-js', '3.5.1' # A library to provide the I18n translations on the Javas
 # Active Storage
 gem 'aws-sdk-s3', '~> 1.83', '>= 1.83.1'
 
+# HTTP clients
+gem 'http', '~> 4.4', '>= 4.4.1'
+
 # Authentications & Authorizations
 gem 'devise' # Authentication solution for Rails with Warden
 gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
