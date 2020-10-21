@@ -8,6 +8,7 @@
     <thead class="thead-dark">
       <tr>
         <th><%= Report.human_attribute_name(:title) %></th>
+        <th>Keywords</th>
         <th><%= Report.human_attribute_name(:updated_at) %></th>
         <th></th>
         <th></th>
@@ -17,6 +18,7 @@
       <% @reports.each do |report| %>
       <tr>
         <td><%= report.title %></td>
+        <td><%= report.search_results.count %></td>
         <td><%= report.updated_at.to_s(:db) %></td>
         <td><%= link_to 'Show', report, class: "btn btn-primary btn-sm" %></td>
         <td><%= button_to 'Delete', report, method: :delete,
