@@ -19,6 +19,7 @@ gem 'aws-sdk-s3', '~> 1.83', '>= 1.83.1'
 
 # HTTP clients
 gem 'http', '~> 4.4', '>= 4.4.1'
+gem 'webdrivers' # Run Selenium tests more easily with automatic installation and updates for all supported webdrivers
 
 # Authentications & Authorizations
 gem 'devise' # Authentication solution for Rails with Warden
@@ -72,7 +73,6 @@ end
 group :test do
   gem 'rspec-retry' # Retry randomly failing rspec example.
   gem 'capybara', '>= 2.15' # Integration testing
-  gem 'webdrivers' # Run Selenium tests more easily with automatic installation and updates for all supported webdrivers
   gem 'database_cleaner' # Use Database Cleaner
   gem 'shoulda-matchers' # Tests common Rails functionalities
   gem 'json_matchers' # Validate the JSON returned by your Rails JSON APIs
