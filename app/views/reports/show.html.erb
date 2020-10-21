@@ -4,10 +4,10 @@
   <table class="table table-striped table-bordered table-hover table-sm">
     <thead class="thead-dark">
       <tr>
-        <th><%= SearchResult.human_attribute_name(:term) %></th>
-        <th><%= SearchResult.human_attribute_name(:count_adwords_advertisers) %></th>
-        <th><%= SearchResult.human_attribute_name(:count_links) %></th>
-        <th><%= SearchResult.human_attribute_name(:count_hits) %></th>
+        <th>Search term</th>
+        <th>AdWords advertisers</th>
+        <th>Total links</th>
+        <th>Results</th>
         <th><%= SearchResult.human_attribute_name(:elapsed_time) %></th>
         <!--th><%# SearchResult.human_attribute_name(:html) %></th-->
       </tr>
@@ -17,9 +17,9 @@
       <tr>
         <td><%= result.term %></td>
         <td><%= result.count_adwords_advertisers %></td>
-        <td><%= result.count_links %></td>
-        <td><%= result.count_hits %></td>
-        <td><%= result.elapsed_time %></td>
+        <td><%= number_with_delimiter result.count_links %></td>
+        <td><%= number_with_delimiter result.count_hits %></td>
+        <td><%= result.elapsed_time %>s</td>
         <!--td><%# link_to 'Page', result.html %></td-->
       </tr>
       <% end %>
