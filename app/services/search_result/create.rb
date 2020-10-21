@@ -1,4 +1,5 @@
 require 'selenium-webdriver'
+require 'csv'
 
 class SearchResult < ApplicationRecord
   class Create
