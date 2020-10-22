@@ -1,6 +1,15 @@
 <%= simple_form_for(@report, html: { class: 'new_report user-form' }) do |f| %>
   <h1 class="h3 mb-3 font-weight-normal"><%= @title %></h1>
 
+  <p>
+    Currently, csv files in the following format is supported:<br>
+    <code>
+      keyword<br>
+      first keyword<br>
+      second keyword
+    </code>
+  </p>
+
   <%= f.input :title, label_html: { class: "sr-only" },
                       placeholder: "Title",
                       required: true,
