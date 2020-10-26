@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_172551) do
+ActiveRecord::Schema.define(version: 2020_10_26_104633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_172551) do
     t.bigint "report_id", null: false
     t.integer "count_adwords_advertisers"
     t.integer "count_links"
-    t.integer "count_hits"
+    t.bigint "count_hits"
     t.decimal "elapsed_time", precision: 5, scale: 2
     t.text "html"
     t.datetime "created_at", precision: 6, null: false
