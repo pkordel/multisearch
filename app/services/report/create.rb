@@ -18,7 +18,8 @@ class Report < ApplicationRecord
     private
 
     def process_keywords
-      SearchResult::Create.call(report: report)
+      # SearchResult::Create.call(report: report)
+      SearchResult::Create.perform_later(report: report)
     end
   end
 end

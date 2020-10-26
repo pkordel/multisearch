@@ -9,6 +9,11 @@ class SearchResult < ApplicationRecord
       new(*args).call
     end
 
+    def self.perform_later(*args)
+      # Enqueue a job
+      new(*args).call
+    end
+
     def initialize(report:)
       @report = report
       @search_limit = ENV.fetch('SEARCH_LIMIT').to_i
@@ -16,7 +21,6 @@ class SearchResult < ApplicationRecord
 
     def call
       terms.each do |term|
-        sleep 1 unless Rails.env.test?
         results = fetch_results(term)
         search_result = report.search_results.build(results)
         search_result.save
@@ -33,7 +37,7 @@ class SearchResult < ApplicationRecord
         counter += 1
         break if counter == search_limit
 
-        list << row.fetch('keyword')
+        list << row.values_at.join
       end
     end
 
