@@ -18,6 +18,15 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 Layout/LineLength:
   Max: 120
   Exclude:
@@ -27,12 +36,6 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/FormatStringToken:
-  EnforcedStyle: template
 
 Rails/FilePath:
   EnforcedStyle: arguments
