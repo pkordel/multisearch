@@ -12,6 +12,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'config/**/*'
     - '**/*.erb'
+  NewCops: enable
   TargetRubyVersion: 2.6
 
 Style/Documentation:
